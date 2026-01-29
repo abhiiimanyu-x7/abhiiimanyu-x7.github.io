@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect | Abhimanyu Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; }
+        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+    <main class="min-h-screen flex flex-col justify-center pt-24 px-6 max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold mb-4">Establish_Connection<span class="text-cyan-500">()</span></h1>
+        <p class="text-slate-400 mb-12">Whether it's a project collaboration or an internship opportunity, my gateway is open.</p>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-8">
+                <div>
+                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Location</p>
+                    <p class="text-lg">Lucknow, Uttar Pradesh, IN</p>
+                </div>
+                <div>
+                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Direct_Line</p>
+                    <a href="tel:+919759116579" class="text-lg hover:text-cyan-400 transition-colors">+91 97591 16579</a>
+                </div>
+                <div>
+                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Digital_Coordinates</p>
+                    <div class="flex gap-4 mt-2">
+                        <a href="#" class="p-3 bg-slate-900 rounded-lg border border-slate-800 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all">GitHub</a>
+                        <a href="#" class="p-3 bg-slate-900 rounded-lg border border-slate-800 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contact-form" class="glass p-8 rounded-2xl space-y-4">
+                <input type="text" placeholder="NAME_ENTRY" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm">
+                <input type="email" placeholder="EMAIL_COORDINATE" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm">
+                <textarea rows="4" placeholder="MESSAGE_PAYLOAD" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm"></textarea>
+                <button type="submit" class="w-full py-4 bg-cyan-500 text-slate-950 font-bold rounded-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all uppercase tracking-widest text-xs">Transmit_Data</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
