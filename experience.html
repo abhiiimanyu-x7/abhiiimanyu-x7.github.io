@@ -1,37 +1,196 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience | Abhimanyu Singh</title>
+    <title>Experience_Archive | Abhimanyu Singh</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
-    <style>body { font-family: 'JetBrains Mono', monospace; }</style>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#020617',
+                        lightBg: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'JetBrains Mono', monospace; }
+        .panel-border {
+            border-width: 2px;
+            border-color: #e2e8f0; /* slate-200 */
+            border-radius: 1.5rem; /* rounded-3xl */
+            transition-property: all;
+            transition-duration: 300ms;
+        }
+        .dark .panel-border {
+            border-color: #1e293b; /* slate-800 */
+        }
+        .glass-header { 
+            background: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 2px solid #e2e8f0; 
+        }
+        .dark .glass-header { 
+            background: rgba(2, 6, 23, 0.9); 
+            border-bottom-color: #1e293b; 
+        }
+        .tech-tag {
+            font-size: 9px;
+            font-weight: bold;
+            padding: 0.25rem 0.5rem;
+            background-color: #f1f5f9;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+        }
+        .dark .tech-tag {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+    </style>
 </head>
-<body class="bg-slate-950 text-slate-200 p-6 md:p-24">
-    <a href="index.html" class="inline-flex items-center gap-2 text-cyan-400 mb-12 hover:text-white transition-all">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        <span class="text-xs font-bold uppercase tracking-widest">Back_to_System</span>
-    </a>
-    
-    <h1 class="text-4xl font-bold mb-16 italic">Experience_Log<span class="text-cyan-500">.txt</span></h1>
-    
-    <div class="max-w-4xl space-y-20">
-        <section>
-            <h2 class="text-xl font-bold text-cyan-400 mb-2">Technical Trainee @ Dhex Mediatech</h2>
-            <p class="text-xs text-slate-500 mb-6 uppercase tracking-widest">Nov 2023 - Oct 2024 | Rampur, IN</p>
-            <p class="text-slate-400 text-sm leading-relaxed">
-                Focused on deploying high-availability ML endpoints. Integrated real-time web access for GenAI agents using **AWS SageMaker** and **Docker**.
-            </p>
-        </section>
+<body class="bg-lightBg text-slate-900 dark:bg-darkBg dark:text-slate-200 transition-colors duration-500">
 
-        <section>
-            <h2 class="text-xl font-bold text-cyan-400 mb-2">Lead Volunteer @ NSS</h2>
-            <p class="text-xs text-slate-500 mb-6 uppercase tracking-widest">Dec 2024 - Present | Lucknow, IN</p>
-            <p class="text-slate-400 text-sm leading-relaxed">
-                Pioneered the use of digital tools for social impact. Led village outreach programs focusing on healthcare awareness and digitized volunteer tracking for national initiatives.
-            </p>
-        </section>
-    </div>
+    <nav class="fixed top-0 w-full z-[100] glass-header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter text-cyan-600 dark:text-cyan-400">ABHIMANYU<span class="text-slate-400">.sh</span></a>
+            <div class="flex gap-6 items-center">
+                <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-cyan-500 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    ./back_to_base
+                </a>
+                <button onclick="toggleTheme()" class="p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-cyan-500 transition-all">
+                    <span id="theme-icon-sun" class="hidden dark:block text-yellow-400">☀️</span>
+                    <span id="theme-icon-moon" class="block dark:hidden text-slate-700">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-5xl mx-auto">
+        <header class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 italic uppercase tracking-tighter">Experience_Log<span class="text-cyan-500 text-3xl">.txt</span></h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm uppercase tracking-[0.2em]">Tracing the technical and social milestones.</p>
+        </header>
+
+        <div class="space-y-12">
+            
+            <article class="panel-border p-8 md:p-12 bg-white dark:bg-slate-900/30 hover:shadow-2xl transition-all group">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-cyan-600 dark:text-cyan-400 group-hover:tracking-wider transition-all">Technical Trainee</h2>
+                        <p class="text-sm font-bold opacity-70">Dhex Mediatech Pvt. Ltd.</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] font-bold bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 px-4 py-2 rounded-full border border-cyan-500/20">NOV 2023 — OCT 2024</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="md:col-span-2 space-y-6">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Key Contributions:</p>
+                        <ul class="space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-4">
+                                <span class="text-cyan-500 font-bold">01</span>
+                                <span>Engineered and deployed custom **Machine Learning models** on AWS SageMaker, utilizing Docker for environment consistency across staging and production.</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-cyan-500 font-bold">02</span>
+                                <span>Architected low-latency API endpoints for GenAI-driven applications, reducing response times by optimizing inference pipelines.</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-cyan-500 font-bold">03</span>
+                                <span>Integrated autonomous **Web Scraping Agents** with LLM layers to provide real-time, context-aware intelligence for business datasets.</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-cyan-500 font-bold">04</span>
+                                <span>Automated end-to-end data ingestion workflows, ensuring high data integrity for model re-training and evaluation.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Environment_Stack:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">AWS SageMaker</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">Linux</span>
+                        </div>
+                        <div class="pt-6 border-t border-slate-100 dark:border-slate-800">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Location:</p>
+                            <p class="text-xs">Rampur, Uttar Pradesh, IN</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="panel-border p-8 md:p-12 bg-white dark:bg-slate-900/30 hover:shadow-2xl transition-all group">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-cyan-600 dark:text-cyan-400 group-hover:tracking-wider transition-all">Lead Volunteer</h2>
+                        <p class="text-sm font-bold opacity-70">National Service Scheme (NSS)</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-[10px] font-bold bg-green-500/10 text-green-600 dark:text-green-400 px-4 py-2 rounded-full border border-green-500/20 uppercase">Dec 2024 — Present</span>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="md:col-span-2 space-y-6">
+                        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Leadership & Impact:</p>
+                        <ul class="space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                            <li class="flex gap-4">
+                                <span class="text-green-500 font-bold">01</span>
+                                <span>Spearheaded the **digitization of event coordination** at KMCLU, implementing QR-based check-ins and automated volunteer hour tracking.</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-green-500 font-bold">02</span>
+                                <span>Led village outreach programs focused on public health awareness, coordinating with local leaders to deliver sanitation and scheme education.</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <span class="text-green-500 font-bold">03</span>
+                                <span>Managed a team of 50+ volunteers for national-scale initiatives like **Swachh Bharat Abhiyan**, ensuring logistics and reporting were handled via cloud-synced tools.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Leadership_Stack:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Team Management</span>
+                            <span class="tech-tag">Public Relations</span>
+                            <span class="tech-tag">Digital Ops</span>
+                            <span class="tech-tag">Event Coordination</span>
+                        </div>
+                        <div class="pt-6 border-t border-slate-100 dark:border-slate-800">
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">HQ:</p>
+                            <p class="text-xs">Lucknow, Uttar Pradesh, IN</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="py-12 text-center border-t border-slate-100 dark:border-slate-900">
+        <p class="text-[9px] text-slate-400 uppercase tracking-[0.4em]">System_Experience_v1.3.3 | Built with Soul</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </body>
 </html>

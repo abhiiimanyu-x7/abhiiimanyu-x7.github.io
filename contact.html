@@ -1,48 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect | Abhimanyu Singh</title>
+    <title>Contact_Gateway | Abhimanyu Singh</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#020617',
+                        lightBg: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+  /* Custom utility classes */
+  .panel-border {
+    border: 2px solid #cbd5e1;
+    border-radius: 1.5rem;
+    transition: all 300ms;
+  }
+
+  .dark .panel-border {
+    border-color: #1c1f35;
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .dark .glass-header {
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom-color: #0f172a;
+  }
+</style>
     <style>
         body { font-family: 'JetBrains Mono', monospace; }
-        .glass { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        
+        /* Scanline Animation for SVGs */
+        @keyframes scan {
+            0% { transform: translateY(-100%); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(100%); opacity: 0; }
+        }
+        .scanline {
+            position: absolute; width: 100%; height: 2px;
+            background: linear-gradient(to right, transparent, #22d3ee, transparent);
+            animation: scan 3s linear infinite;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
-    <main class="min-h-screen flex flex-col justify-center pt-24 px-6 max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold mb-4">Establish_Connection<span class="text-cyan-500">()</span></h1>
-        <p class="text-slate-400 mb-12">Whether it's a project collaboration or an internship opportunity, my gateway is open.</p>
+<body class="bg-lightBg text-slate-900 dark:bg-darkBg dark:text-slate-200 transition-colors duration-500">
+
+    <nav class="fixed top-0 w-full z-[100] glass-header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter text-cyan-600 dark:text-cyan-400">ABHIMANYU<span class="text-slate-400">.sh</span></a>
+            <div class="flex gap-6 items-center">
+                <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest hover:text-cyan-500 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    ./back_to_base
+                </a>
+                <button onclick="toggleTheme()" class="p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-cyan-500 transition-all">
+                    <span id="theme-icon-sun" class="hidden dark:block text-yellow-400 text-lg">☀️</span>
+                    <span id="theme-icon-moon" class="block dark:hidden text-slate-700 text-lg">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 max-w-6xl mx-auto">
+        <header class="mb-20">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 italic uppercase tracking-tighter">Contact_Gateway<span class="text-cyan-500 text-3xl">.exe</span></h1>
+            <p class="text-slate-500 dark:text-slate-400 text-sm uppercase tracking-[0.2em]">Open for collaborations, research inquiries, and technical roles.</p>
+        </header>
 
         <div class="grid md:grid-cols-2 gap-12 items-start">
+            
             <div class="space-y-8">
-                <div>
-                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Location</p>
-                    <p class="text-lg">Lucknow, Uttar Pradesh, IN</p>
-                </div>
-                <div>
-                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Direct_Line</p>
-                    <a href="tel:+919759116579" class="text-lg hover:text-cyan-400 transition-colors">+91 97591 16579</a>
-                </div>
-                <div>
-                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Digital_Coordinates</p>
-                    <div class="flex gap-4 mt-2">
-                        <a href="#" class="p-3 bg-slate-900 rounded-lg border border-slate-800 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all">GitHub</a>
-                        <a href="#" class="p-3 bg-slate-900 rounded-lg border border-slate-800 hover:border-cyan-500 text-slate-400 hover:text-cyan-400 transition-all">LinkedIn</a>
+                <div class="panel-border p-8 bg-white dark:bg-slate-900/30">
+                    <h2 class="text-xl font-bold mb-6 text-cyan-600 dark:text-cyan-400">Establish_Link</h2>
+                    <p class="text-sm leading-relaxed text-slate-500 dark:text-slate-400 mb-8">
+                        Whether you're looking for an ML intern who understands the infrastructure or just want to discuss the latest in AI Agents, my gateway is always open.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-cyan-500"></div>
+                            <span class="text-xs font-bold tracking-widest uppercase">Lucknow, Uttar Pradesh, IN</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-2 h-2 rounded-full bg-cyan-500"></div>
+                            <span class="text-xs font-bold tracking-widest uppercase">Chauhanmannu100@gmail.com</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-10 pt-10 border-t border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <span class="relative flex h-3 w-3">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            <p class="text-[10px] font-bold text-green-600 dark:text-green-400 uppercase tracking-widest">Active_for_internships</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <form id="contact-form" class="glass p-8 rounded-2xl space-y-4">
-                <input type="text" placeholder="NAME_ENTRY" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm">
-                <input type="email" placeholder="EMAIL_COORDINATE" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm">
-                <textarea rows="4" placeholder="MESSAGE_PAYLOAD" required class="w-full bg-slate-900/50 border border-slate-800 p-4 rounded-lg focus:outline-none focus:border-cyan-500 text-sm"></textarea>
-                <button type="submit" class="w-full py-4 bg-cyan-500 text-slate-950 font-bold rounded-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.4)] transition-all uppercase tracking-widest text-xs">Transmit_Data</button>
+            <form id="contact-form" class="panel-border p-8 md:p-12 bg-white dark:bg-slate-900/30 space-y-6">
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Identity_ID</label>
+                    <input type="text" name="from_name" placeholder="Name or Organization" required>
+                </div>
+                
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Return_Coordinate</label>
+                    <input type="email" name="reply_to" placeholder="email@address.com" required>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400 ml-1">Data_Payload</label>
+                    <textarea name="message" rows="5" placeholder="Transmission content..." required></textarea>
+                </div>
+
+                <button type="submit" id="submit-btn" 
+                    class="w-full py-4 bg-slate-900 dark:bg-cyan-500 text-white dark:text-slate-950 font-bold rounded-2xl hover:bg-cyan-600 dark:hover:bg-cyan-400 transition-all uppercase tracking-[0.3em] text-xs shadow-xl">
+                    Transmit_Data
+                </button>
+                <p id="form-status" class="text-[10px] text-center uppercase tracking-widest mt-4 opacity-0 transition-opacity">Status: Awaiting_Input</p>
             </form>
+
         </div>
     </main>
+
+    <footer class="py-12 text-center border-t border-slate-100 dark:border-slate-900">
+        <p class="text-[9px] text-slate-400 uppercase tracking-[0.4em]">System_Gateway_v1.3.4 | Code doesn't lie.</p>
+    </footer>
+
+    <script>
+        // EmailJS Initialization (Replace with your actual Public Key)
+        (function() {
+            emailjs.init("0FtefjMEgoGVfc6fD"); 
+        })();
+
+        // Form Handler
+        const btn = document.getElementById('submit-btn');
+        const statusText = document.getElementById('form-status');
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            btn.innerText = 'STATUS: ENCRYPTING...';
+            btn.disabled = true;
+            statusText.classList.remove('opacity-0');
+            statusText.innerText = 'Transmitting data payload to remote host...';
+
+            // Parameters: (Service_ID, Template_ID, Form_Element)
+            emailjs.sendForm('service_xjdkrdc', 'YOUR_TEMPLATE_ID', this)
+                .then(function() {
+                    btn.innerText = 'TRANSMISSION_SUCCESS';
+                    btn.style.backgroundColor = '#22c55e';
+                    statusText.innerText = 'ACK Received: Message delivered successfully.';
+                    document.getElementById('contact-form').reset();
+                    
+                    setTimeout(() => {
+                        btn.innerText = 'Transmit_Data';
+                        btn.style.backgroundColor = '';
+                        btn.disabled = false;
+                        statusText.classList.add('opacity-0');
+                    }, 5000);
+                }, function(error) {
+                    btn.innerText = 'LINK_FAILURE';
+                    btn.style.backgroundColor = '#ef4444';
+                    statusText.innerText = 'Error: Transmission interrupted. Please retry.';
+                    btn.disabled = false;
+                });
+        });
+
+        // Theme Engine
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
 </body>
 </html>
