@@ -1,4 +1,5 @@
 Abhimanyu.sh — System v1.3.5 🚀
+
 Welcome to the source code of my digital headquarters.
 Based in Lucknow, India, I build things that think, scale, and solve real-world problems.
 
@@ -25,6 +26,7 @@ An alternating vertical timeline that documents my journey.
 A dedicated gallery using HUD-style SVGs and scanline animations to showcase systems like my "LangChain Search Agent" and "Semantic Matchmaker."
 
 🚀 The DevOps Workflow (CI/CD)
+
 This project is built using a modern Continuous Integration / Continuous Deployment pipeline.
 Code: Changes are made locally in a JetBrains-optimized environment.
 Push: Code is pushed to the main branch on GitHub.
@@ -32,10 +34,12 @@ Deploy: GitHub Pages automatically triggers a build and deploys the new version 
 
 📂 Installation (Local Setup)
 If you want to run this system on your local machine:
+
 Clone the Repository:
 Bash
 git clone https://github.com/abhiiimanyu-x7/abhiiimanyu-x7.github.io.git
 Navigate to Folder:
+
 Bash
 cd abhiiimanyu-x7.github.io
 Launch: Simply open index.html in your favorite browser (or use the VS Code "Live Server" extension).
