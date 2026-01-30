@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhimanyu Singh | Machine Learning , Deep Learning & DevOps Enthusiast</title>
+    <title>Abhimanyu Singh | ML, DL & DevOps Enthusiast</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
     <script>
@@ -21,55 +21,78 @@
     </script>
     <style>
         body { font-family: 'JetBrains Mono', monospace; }
-        .panel-border { border: 2px solid; border-color: rgb(226, 232, 240); border-radius: 1.5rem; transition: colors 300ms; }
-        .dark .panel-border { border-color: rgb(30, 41, 59); }
-        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(20px); border-bottom: 2px solid rgb(226, 232, 240); }
-        .dark .glass-header { background: rgba(15, 23, 42, 0.95); border-bottom-color: rgb(15, 23, 42); }
         
-        .timeline-container::after { content: ''; position: absolute; width: 2px; background: #334155; top: 0; bottom: 0; left: 50%; margin-left: -1px; }
-        @media (max-width: 768px) { .timeline-container::after { left: 31px; } }
+        .panel-border { 
+            border: 2px solid; border-color: #cbd5e1; border-radius: 1.5rem; transition: all 300ms;
+        }
+        .dark .panel-border { 
+            border-color: #1e293b; 
+        }
+        
+        .glass-header { 
+            background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 2px solid #f1f5f9;
+        }
+        .dark .glass-header { 
+            background-color: rgba(3, 7, 30, 0.9); border-bottom-color: #0f172a;
+        }
+        
+        .timeline-container::after { 
+            content: ''; position: absolute; width: 2px; background-color: #cbd5e1; top: 0; bottom: 0; left: 50%; margin-left: -1px; 
+        }
+        .dark .timeline-container::after {
+            background-color: #1e293b;
+        }
+        
+        @media (max-width: 768px) { 
+            .timeline-container::after { left: 31px; } 
+        }
+
+        @keyframes scan { 0% { transform: translateY(-100%); opacity: 0; } 50% { opacity: 0.5; } 100% { transform: translateY(100%); opacity: 0; } }
+        .scanline { position: absolute; width: 100%; height: 2px; background: linear-gradient(to right, transparent, #22d3ee, transparent); animation: scan 3s linear infinite; }
     </style>
 </head>
-<body class="bg-lightBg text-slate-900 dark:bg-darkBg dark:text-slate-200 transition-colors duration-500 selection:bg-cyan-500 selection:text-white">
+<body id="body-root" class="bg-lightBg text-slate-900 dark:bg-darkBg dark:text-slate-200 transition-colors duration-500 selection:bg-cyan-500 selection:text-white">
 
     <nav class="fixed top-0 w-full z-[100] glass-header">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="index.html" class="text-xl font-bold tracking-tighter text-cyan-600 dark:text-cyan-400">ABHIMANYU<span class="text-slate-400">.sh</span></a>
-        
-        <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest items-center">
-            <a href="index.html#home" class="hover:text-cyan-500 transition-colors">./home</a>
-            <a href="index.html#path" class="hover:text-cyan-500 transition-colors">./path</a>
-            <a href="experience.html" class="hover:text-cyan-500 transition-colors">./experience</a>
-            <a href="projects.html" class="hover:text-cyan-500 transition-colors">./projects</a>
-            <a href="contact.html" class="hover:text-cyan-500 transition-colors">./contact</a>
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold tracking-tighter text-cyan-600 dark:text-cyan-400">ABHIMANYU<span class="text-slate-400">.sh</span></a>
             
-            <button onclick="toggleTheme()" class="ml-4 p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-cyan-500 transition-all">
-                <span id="theme-icon-sun" class="hidden dark:block text-yellow-400">☀️</span>
-                <span id="theme-icon-moon" class="block dark:hidden text-slate-700">🌙</span>
-            </button>
+            <div class="hidden md:flex gap-6 text-[10px] font-bold uppercase tracking-widest items-center">
+                <a href="#home" class="hover:text-cyan-500 transition-colors">./home</a>
+                <a href="#path" class="hover:text-cyan-500 transition-colors">./path</a>
+                <a href="experience.html" class="hover:text-cyan-500 transition-colors">./experience</a>
+                <a href="projects.html" class="hover:text-cyan-500 transition-colors">./projects</a>
+                <a href="contact.html" class="hover:text-cyan-500 transition-colors">./contact</a>
+                
+                <button onclick="toggleTheme()" class="ml-4 p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800 hover:border-cyan-500 transition-all">
+                    <span id="theme-icon-sun" class="hidden dark:block text-yellow-400 text-lg">☀️</span>
+                    <span id="theme-icon-moon" class="block dark:hidden text-slate-700 text-lg">🌙</span>
+                </button>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button onclick="toggleTheme()" class="p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800">
+                    <span class="dark:hidden text-sm">🌙</span>
+                    <span class="hidden dark:block text-sm">☀️</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="p-2 text-slate-600 dark:text-slate-400" id="menu-toggle">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <a href="assets/docs/AbhimanyuS_CV.pdf" target="_blank" class="hidden md:block px-5 py-2.5 bg-slate-900 dark:bg-cyan-500/10 text-white dark:text-cyan-400 border-2 border-slate-900 dark:border-cyan-500/50 rounded-xl hover:bg-cyan-600 dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-all text-[10px] font-bold uppercase">Get_CV</a>
         </div>
 
-        <div class="flex md:hidden items-center gap-4">
-            <button onclick="toggleTheme()" class="p-2 rounded-xl border-2 border-slate-100 dark:border-slate-800">
-                <span class="dark:hidden text-sm">🌙</span>
-                <span class="hidden dark:block text-sm">☀️</span>
-            </button>
-            <button onclick="toggleMobileMenu()" class="p-2 text-slate-600 dark:text-slate-400" id="menu-toggle">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-950 border-b-2 border-slate-200 dark:border-slate-900 p-8 flex flex-col gap-8 text-[12px] font-bold uppercase tracking-[0.3em] shadow-2xl z-[101]">
+            <a href="#home" onclick="toggleMobileMenu()" class="hover:text-cyan-500">./home</a>
+            <a href="#path" onclick="toggleMobileMenu()" class="hover:text-cyan-500">./path</a>
+            <a href="experience.html" class="hover:text-cyan-500">./experience</a>
+            <a href="projects.html" class="hover:text-cyan-500">./projects</a>
+            <a href="contact.html" class="hover:text-cyan-500">./contact</a>
+            <a href="assets/docs/AbhimanyuS_CV.pdf" target="_blank" class="text-cyan-600 dark:text-cyan-400 pt-6 border-t border-slate-100 dark:border-slate-800">Get_CV_Payload</a>
         </div>
-        
-        <a href="assets/docs/AbhimanyuS_CV.pdf" target="_blank" class="hidden md:block px-5 py-2.5 bg-slate-900 dark:bg-cyan-500/10 text-white dark:text-cyan-400 border-2 border-slate-900 dark:border-cyan-500/50 rounded-xl hover:bg-cyan-600 dark:hover:bg-cyan-500 dark:hover:text-slate-950 transition-all text-[10px] font-bold uppercase">Get_CV</a>
-    </div>
-
-    <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-950 border-b-2 border-slate-200 dark:border-slate-900 p-6 flex flex-col gap-6 text-[11px] font-bold uppercase tracking-[0.2em] shadow-2xl">
-        <a href="index.html#home" onclick="toggleMobileMenu()" class="hover:text-cyan-500">./home</a>
-        <a href="index.html#path" onclick="toggleMobileMenu()" class="hover:text-cyan-500">./path</a>
-        <a href="experience.html" class="hover:text-cyan-500">./experience</a>
-        <a href="projects.html" class="hover:text-cyan-500">./projects</a>
-        <a href="contact.html" class="hover:text-cyan-500">./contact</a>
-        <a href="assets/docs/AbhimanyuS_CV.pdf" target="_blank" class="text-cyan-600 dark:text-cyan-400 pt-4 border-t border-slate-100 dark:border-slate-900">Get_CV_Snapshot</a>
-    </div>
     </nav>
 
     <header id="home" class="min-h-screen flex flex-col justify-center items-center px-6 relative overflow-hidden pt-20">
@@ -79,8 +102,8 @@
             <h1 class="text-5xl md:text-8xl font-bold mb-8 tracking-tighter">
                 I build <span id="typewriter" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400"></span><span class="animate-pulse text-cyan-400">_</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 mb-12 text-sm md:text-base leading-relaxed">
-                Open-source enthusiast exploring <span class="text-slate-900 dark:text-slate-100 font-bold">AI Agents</span> and <span class="text-slate-900 dark:text-slate-100 font-bold">MLOps</span>. Engineering scalable software systems from Lucknow, India.
+            <p class="max-w-2xl mx-auto text-slate-500 dark:text-slate-400 mb-12 text-sm md:text-base leading-relaxed uppercase tracking-widest">
+                Open-source enthusiast exploring <span class="text-slate-900 dark:text-slate-100 font-bold">AI Agents</span> and <span class="text-slate-900 dark:text-slate-100 font-bold">MLOps</span>.
             </p>
             <div class="flex gap-4 justify-center">
                 <a href="#path" class="px-10 py-4 bg-cyan-600 dark:bg-cyan-500 text-white dark:text-slate-950 font-bold rounded-2xl shadow-xl transition-all hover:scale-105 text-xs uppercase tracking-widest">Explore_Systems</a>
@@ -114,7 +137,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="mb-20 flex justify-between items-center w-full group">
                     <div class="hidden md:block w-5/12"></div>
                     <div class="z-20 flex items-center order-1 bg-white dark:bg-slate-950 border-4 border-slate-200 dark:border-slate-800 w-10 h-10 rounded-full">
@@ -130,7 +152,6 @@
                             <li class="flex gap-3"><span>▹</span> Digitized NSS event coordination using QR codes and digital tracking.</li>
                             <li class="flex gap-3"><span>▹</span> Led village outreach drives for sanitation and healthcare awareness.</li>
                             <li class="flex gap-3"><span>▹</span> Orchestrated real-time volunteer management for national initiatives.</li>
-                            <li class="flex gap-3"><span>▹</span> Developed reporting workflows to measure community social impact.</li>
                         </ul>
                     </div>
                 </div>
@@ -143,101 +164,76 @@
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="p-8 panel-border bg-white dark:bg-slate-900/30">
-                    <h3 class="text-[10px] font-bold text-cyan-500 uppercase tracking-widest mb-6">Data Science</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Python</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Pandas</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Numpy</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Seaborn</span>
+                    <h3 class="text-[10px] font-bold text-cyan-500 uppercase mb-6 tracking-widest">Data Science</h3>
+                    <div class="flex flex-wrap gap-2 text-[10px] font-bold">
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">PYTHON</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">PANDAS</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">NUMPY</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">SEABORN</span>
                     </div>
                 </div>
                 <div class="p-8 panel-border bg-white dark:bg-slate-900/30">
-                    <h3 class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-6">ML / DL</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">TensorFlow</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">PyTorch</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">LangChain</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">OpenCV</span>
+                    <h3 class="text-[10px] font-bold text-blue-500 uppercase mb-6 tracking-widest">ML / DL</h3>
+                    <div class="flex flex-wrap gap-2 text-[10px] font-bold">
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">TENSORFLOW</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">PYTORCH</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">LANGCHAIN</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">OPENCV</span>
                     </div>
                 </div>
                 <div class="p-8 panel-border bg-white dark:bg-slate-900/30">
-                    <h3 class="text-[10px] font-bold text-purple-500 uppercase tracking-widest mb-6">DevOps</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Docker</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Kubernetes</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">AWS S3/EC2</span>
-                        <span class="text-[10px] border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">Git</span>
+                    <h3 class="text-[10px] font-bold text-purple-500 uppercase mb-6 tracking-widest">Infrastructure</h3>
+                    <div class="flex flex-wrap gap-2 text-[10px] font-bold">
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">DOCKER</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">KUBERNETES</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">AWS</span>
+                        <span class="border border-slate-200 dark:border-slate-800 px-3 py-1.5 rounded-lg">GIT</span>
                     </div>
                 </div>
                 <div class="p-8 panel-border bg-white dark:bg-slate-900/30">
-                    <h3 class="text-[10px] font-bold text-green-500 uppercase tracking-widest mb-6">Persona</h3>
-                    <p class="text-[10px] leading-relaxed uppercase font-bold opacity-60">Open Source Enthusiast & AI Researcher</p>
+                    <h3 class="text-[10px] font-bold text-green-500 uppercase mb-6 tracking-widest">Focus</h3>
+                    <p class="text-[10px] leading-relaxed uppercase font-bold opacity-60">AI Agents & MLOps Research</p>
                 </div>
             </div>
         </section>
+
         <section id="systems" class="py-24 border-t-2 border-slate-100 dark:border-slate-900">
-        <h2 class="text-3xl font-bold mb-20 flex items-center gap-4">
-            <span class="text-cyan-600 dark:text-cyan-500">03.</span> Featured_Systems
-        </h2>
-
-        <div class="grid md:grid-cols-2 gap-8">
-            
-            <div class="group panel-border bg-white dark:bg-slate-900/30 p-10 hover:shadow-2xl transition-all relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
-                    <svg class="w-20 h-20 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <h2 class="text-3xl font-bold mb-20 flex items-center gap-4">
+                <span class="text-cyan-600 dark:text-cyan-500">03.</span> Featured_Systems
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="group panel-border bg-white dark:bg-slate-900/30 p-10 hover:shadow-2xl transition-all relative overflow-hidden">
+                    <div class="scanline"></div>
+                    <div class="flex justify-between items-start mb-8">
+                        <svg class="w-12 h-12 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        <span class="text-[9px] font-bold text-slate-500 tracking-[0.2em]">01_AGENT</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-cyan-500 transition-colors">LangChain Search Agent</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">Autonomous AI researcher built with GPT-4 for context-aware web scraping and research.</p>
+                    <a href="projects.html" class="text-[10px] font-bold text-cyan-500 hover:tracking-widest transition-all uppercase">Analyze_Architecture_→</a>
                 </div>
-                
-                <h3 class="text-2xl font-bold mb-4 group-hover:text-cyan-500 transition-colors">LangChain Search Agent</h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
-                    An autonomous AI researcher built with GPT-4 and Streamlit. Implements adaptive re-prompting and real-time web scraping for context-aware intelligence.
-                </p>
-                
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">PYTHON</span>
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">LANGCHAIN</span>
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">OPENAI</span>
-                </div>
-
-                <div class="border-t border-slate-100 dark:border-slate-800 pt-6">
-                    <p class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-2">Core Optimization</p>
-                    <p class="text-xs text-slate-500 italic">Integrated PromptLayer for latency monitoring and intelligent document summarization.</p>
+                <div class="group panel-border bg-white dark:bg-slate-900/30 p-10 hover:shadow-2xl transition-all relative overflow-hidden">
+                    <div class="scanline"></div>
+                    <div class="flex justify-between items-start mb-8">
+                        <svg class="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        <span class="text-[9px] font-bold text-slate-500 tracking-[0.2em]">02_VEC_SIM</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-500 transition-colors">Semantic Matchmaker</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">Bridging the gap between profiles and opportunities using MiniLM embeddings.</p>
+                    <a href="projects.html" class="text-[10px] font-bold text-blue-500 hover:tracking-widest transition-all uppercase">Analyze_Architecture_→</a>
                 </div>
             </div>
-
-            <div class="group panel-border bg-white dark:bg-slate-900/30 p-10 hover:shadow-2xl transition-all relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
-                    <svg class="w-20 h-20 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
-
-                <h3 class="text-2xl font-bold mb-4 group-hover:text-blue-500 transition-colors">Semantic Matchmaker</h3>
-                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
-                    Leveraging MiniLM embeddings and Flan-T5 to bridge the gap between Tier-3 student profiles and high-tier placement opportunities.
-                </p>
-
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">NLP</span>
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">HUGGINGFACE</span>
-                    <span class="text-[9px] font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full">MINILM</span>
-                </div>
-
-                <div class="border-t border-slate-100 dark:border-slate-800 pt-6">
-                    <p class="text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-2">System Design</p>
-                    <p class="text-xs text-slate-500 italic">Multi-modal pipeline integrating resume parsing and job description similarity scoring.</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
+        </section>
 
         <section id="commits">
             <div class="flex justify-between items-end mb-16">
                 <h2 class="text-3xl font-bold flex items-center gap-4">
                     <span class="text-cyan-600 dark:text-cyan-500">04.</span> Latest_Commits
                 </h2>
-                <a href="https://github.com/abhiiimanyu-x7" target="_blank" class="text-[10px] font-bold hover:text-cyan-500 transition-colors">./github_profile</a>
+                <a href="https://github.com/abhiiimanyu-x7" target="_blank" class="text-[10px] font-bold hover:text-cyan-500 transition-colors uppercase tracking-widest">./github_profile</a>
             </div>
             <div id="github-feed" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <p class="text-xs text-slate-500 animate-pulse">SYNCHRONIZING_WITH_REMOTE_HOST...</p>
+                <p class="text-xs text-slate-500 animate-pulse uppercase">Establishing_Remote_Telemetry_Link...</p>
             </div>
         </section>
 
@@ -245,7 +241,6 @@
 
     <footer class="bg-slate-50 dark:bg-slate-950 pt-24 pb-12 px-6 border-t-2 border-slate-200 dark:border-slate-900">
         <div class="max-w-6xl mx-auto">
-            
             <div class="grid md:grid-cols-2 gap-12 mb-20 items-center">
                 <div class="text-center md:text-left">
                     <h2 class="text-3xl font-bold text-cyan-600 dark:text-cyan-400 mb-4 tracking-tighter uppercase">Abhimanyu Singh</h2>
@@ -288,7 +283,7 @@
                 </p>
 
                 <div class="text-[9px] text-slate-400 dark:text-slate-700 uppercase tracking-[0.4em] space-y-3">
-                    <p>cc Abhimanyu Singh — System.v1.3.2</p>
+                    <p>cc Abhimanyu Singh — System.v1.3.5</p>
                     <p>Built with Architecture & Vibe in Lucknow, IN</p>
                 </div>
             </div>
@@ -296,51 +291,79 @@
     </footer>
 
     <script>
-        // Theme Engine
+        // TYPEWRITER SYSTEM
+        const words = ["ML Models.", "AI Agents.", "Cloud Systems.", "Impactful Code."];
+        let i = 0, j = 0, isDeleting = false;
+        function type() {
+            const current = words[i];
+            const element = document.getElementById("typewriter");
+            if (element) {
+                element.textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
+                let speed = isDeleting ? 70 : 150;
+                if (!isDeleting && j === current.length) { isDeleting = true; speed = 2000; }
+                else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % words.length; speed = 500; }
+                setTimeout(type, speed);
+            }
+        }
+
+        // THEME ENGINE (IMMEDIATE FEEDBACK)
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
             const isDark = document.documentElement.classList.contains('dark');
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
         }
 
-        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
+        // MOBILE DRAWER LOGIC (FIXED ACCESSIBILITY)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu && menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else if (menu) {
+                menu.classList.add('hidden');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
         }
 
-        // Typewriter
-        const words = ["ML Models.", "AI Agents.", "Cloud Systems.", "Impactful Code."];
-        let i = 0, j = 0, isDeleting = false;
-        function type() {
-            const current = words[i];
-            document.getElementById("typewriter").textContent = isDeleting ? current.substring(0, j--) : current.substring(0, j++);
-            let speed = isDeleting ? 70 : 150;
-            if (!isDeleting && j === current.length) { isDeleting = true; speed = 2000; }
-            else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % words.length; speed = 500; }
-            setTimeout(type, speed);
-        }
-        document.addEventListener("DOMContentLoaded", type);
-
-        // GitHub Telemetry
+        // GITHUB TELEMETRY FIX (ACCESS MULTIPLE REPOS)
         async function fetchRepos(username) {
             const container = document.getElementById('github-feed');
             try {
-                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                // Ensure type=public and sort=pushed to see active projects
+                const response = await fetch(`https://api.github.com/users/${username}/repos?type=public&sort=pushed&per_page=10`);
                 const repos = await response.json();
-                container.innerHTML = repos.map(repo => `
-                    <div class="p-6 panel-border bg-white dark:bg-slate-900/40 hover:border-cyan-500/50 transition-all">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[9px] font-bold text-cyan-500 uppercase tracking-widest">${repo.language || 'Code'}</span>
-                            <span class="text-[9px] text-slate-500">★ ${repo.stargazers_count}</span>
+                
+                if (repos.length > 0) {
+                    container.innerHTML = repos.slice(0, 6).map(repo => `
+                        <div class="p-6 panel-border bg-white dark:bg-slate-900/40 hover:border-cyan-500/50 transition-all text-left flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex justify-between items-start mb-4">
+                                    <span class="text-[9px] font-bold text-cyan-500 uppercase tracking-widest">${repo.language || 'DATA'}</span>
+                                    <span class="text-[9px] text-slate-500">★ ${repo.stargazers_count}</span>
+                                </div>
+                                <a href="${repo.html_url}" target="_blank" class="text-sm font-bold block truncate hover:text-cyan-500 mb-2 uppercase font-mono">${repo.name.replace(/-/g, '_')}</a>
+                                <p class="text-[10px] text-slate-500 line-clamp-2 h-8 leading-relaxed">${repo.description || 'System manifest repository.'}</p>
+                            </div>
                         </div>
-                        <a href="${repo.html_url}" target="_blank" class="text-sm font-bold block truncate hover:text-cyan-500 mb-2">${repo.name}</a>
-                        <p class="text-[10px] text-slate-500 line-clamp-2 h-8">${repo.description || 'System repository.'}</p>
-                    </div>
-                `).join('');
-            } catch (e) { container.innerHTML = '<p class="text-xs text-red-500 uppercase">TELEMETRY_LINK_INTERRUPTED</p>'; }
+                    `).join('');
+                } else {
+                    container.innerHTML = '<p class="text-xs text-slate-500">NO_PUBLIC_DATA_FOUND</p>';
+                }
+            } catch (e) { container.innerHTML = '<p class="text-xs text-red-500 uppercase">LINK_FAILURE</p>'; }
         }
-        fetchRepos('abhiiimanyu-x7');
+
+        // INITIALIZE SYSTEM
+        document.addEventListener("DOMContentLoaded", () => {
+            type();
+            fetchRepos('abhiiimanyu-x7');
+            // Immediate Theme Sync
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
     </script>
 </body>
 </html>
